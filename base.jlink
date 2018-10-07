@@ -1,0 +1,5 @@
+h
+loadbin __binary__.bin __flash__ 
+r
+g
+qc
