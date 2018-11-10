@@ -6,7 +6,7 @@ baseScript=base.jlink
 commmanderScript=flash.jlink
 linkerScript=link.ld
 
-# Get Flash addres from linker script
+# Get Flash addres from linker script. Last sed removes all zeros from beginning of addres 
 flashAddr="$(grep '^FLASH.*0x'  $linkerScript | grep -E -o '[0-9]{8}' | sed 's/^0*//')"
 
 # Take binary name from argument
