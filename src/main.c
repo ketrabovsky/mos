@@ -100,6 +100,7 @@ void test_thread(void)
 }
 
 
+// TODO This need to be refactored
 int main()
 {
 	__disable_irq();
