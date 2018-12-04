@@ -23,7 +23,6 @@
  *
  */
 
-
 static volatile uint32_t msTicks; // default initializes to 0
 
 static void sysTickInit(void)
@@ -124,12 +123,14 @@ int main()
 
 
 	_printf("\r\nBoard initialized correctly!\r\n");
+	_printf("\r\nCos tu sie zadzialo!\r\n");
 
 	start_schedule();
 
 	/* Never reached */
 
 	__enable_irq();
+	//Witamy w naszej bajce xd
 
 	while(1) {
 		__WFI();
