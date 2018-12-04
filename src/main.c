@@ -122,6 +122,7 @@ int main()
 	USART_Init();
 
 
+	dhsajad
 	_printf("\r\nBoard initialized correctly!\r\n");
 	_printf("\r\nCos tu sie zadzialo!\r\n");
 
