@@ -99,6 +99,7 @@ void test_thread(void)
 }
 
 
+// Comment
 // TODO This need to be refactored
 int main()
 {
