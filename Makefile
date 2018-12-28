@@ -7,7 +7,6 @@ LFLAGS=$(USE_NANO) $(USE_NOHOST) $(LDSCRIPTS) $(GC) $(MAP)
 
 csrc = $(wildcard src/*.c)
 obj = $(csrc:.c=.o)
-dep = $(obj:.o=.d)
 
 binary: $(NAME)-$(CORE).elf
 	$(OBJCOPY) -O binary $< $(NAME).bin
@@ -15,18 +14,14 @@ binary: $(NAME)-$(CORE).elf
 $(NAME)-$(CORE).elf: $(obj) src/thread_asm.S src/$(STARTUP) 
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
 
--include $(dep)
-
 %.d: %.c
 	@$(CC) $(CFLAGS) $< -MM -MT $(@:.d=.o) >$@
-
 
 objdump: 
 	$(OBJDUMP) -ds $(NAME)-$(CORE).elf | less
 
 flash:
 	@./jflash.sh $(NAME)
-
 
 clean: 
 	rm -f $(NAME)*.axf *.map src/*.o *.elf
