@@ -24,10 +24,10 @@
  * by accessing stack (memory) directly from values passed in r0 and r1. 
  * This solution will add extra time to context switch
  */
-.global mleko
+.global unused
 .thumb
-.type mleko, %function
-mleko:
+.type unused, %function
+unused:
 	/*
 	 * This happens during ISR
 	 * 
@@ -114,7 +114,7 @@ mleko:
 
 
 .align 2
-.size mleko, .-mleko
+.size unused, .-unused
 
 /*
  * This function loads context of first thread to be executed.
