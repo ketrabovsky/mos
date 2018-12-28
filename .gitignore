@@ -3,3 +3,4 @@ src/*.d
 *.d
 *.elf
 *.bin
+*.swp
