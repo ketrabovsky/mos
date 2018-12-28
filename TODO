@@ -1,3 +1,5 @@
 == TODO's ==
 
 * Move header files to src directory
+* Remove my_stdio module
+* Divide header files to libraries provided by vendor
