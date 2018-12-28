@@ -13,8 +13,6 @@
 
 #define PENDSV_BIT (1 << 28)
 
-//extern void mleko();
-//extern void PendSV_Handler();
 /*
  * ------------------ TODO ------------------ 
  *
@@ -23,7 +21,10 @@
  *
  */
 
-static volatile uint32_t msTicks; // default initializes to 0
+/*
+ * Defaults initialzies to 0 becaus it is in .bss section
+ */
+static volatile uint32_t msTicks;
 
 static void sysTickInit(void)
 {
@@ -74,6 +75,9 @@ static void USART_Init()
 
 
 	
+	/*
+	 * TODO: Maybce move this to separate function
+	 */
 	/* USART Configuration */
 	USART_Disable(USART2);
 	USART_SetBaudRate(USART2, 115200);
@@ -98,8 +102,6 @@ void test_thread(void)
 	}
 }
 
-
-// Comment
 // TODO This need to be refactored
 int main()
 {
@@ -109,6 +111,9 @@ int main()
 	NVIC_EnableIRQ(PendSV_IRQn);
 	NVIC_SetPriority(PendSV_IRQn, 0xff); /* Lowest pririty */
 
+	/*
+	 * TODO: Check status if thread_moudle started correctly.
+	 */
 	thread_module_setup();
 
 	thread_create(test_thread, 512);
@@ -122,15 +127,13 @@ int main()
 	/* Initialization of USART (printf) */
 	USART_Init();
 
-	_printf("\r\nBoard initialized correctly!\r\n");
-	_printf("\r\nCos tu sie zadzialo!\r\n");
+	_printf("\r\nBoard initialized!\r\n");
 
 	start_schedule();
 
 	/* Never reached */
 
 	__enable_irq();
-	//Witamy w naszej bajce xd
 
 	while(1) {
 		__WFI();
