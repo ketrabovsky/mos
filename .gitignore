@@ -1,6 +1,6 @@
-src/*.d
 *.o
 *.d
 *.elf
 *.bin
 *.swp
+*.map
