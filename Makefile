@@ -24,4 +24,4 @@ flash:
 	@./jflash.sh $(NAME)
 
 clean: 
-	rm -f $(NAME)*.axf *.map src/*.o *.elf
+	rm -f $(NAME)*.axf *.map src/*.o *.elf *.bin
