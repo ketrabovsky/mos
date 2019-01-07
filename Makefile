@@ -14,9 +14,6 @@ binary: $(NAME)-$(CORE).elf
 $(NAME)-$(CORE).elf: $(obj) src/thread_asm.S src/$(STARTUP) 
 	$(CC) $^ $(CFLAGS) $(LFLAGS) -o $@
 
-%.d: %.c
-	@$(CC) $(CFLAGS) $< -MM -MT $(@:.d=.o) >$@
-
 objdump: 
 	$(OBJDUMP) -ds $(NAME)-$(CORE).elf | less
 
